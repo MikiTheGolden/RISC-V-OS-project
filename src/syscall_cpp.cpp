@@ -28,12 +28,17 @@ Thread::Thread() {
     this->arg = nullptr;
 }
 
+void Thread::wrapper(void* thr){
+    ((Thread*)thr)->run();
+}
+
 int Thread::start() {
-    return thread_create(&myHandle, body, arg);
+    return thread_create(&myHandle, wrapper, this);
 }
 
 Thread::~Thread() {
-    thread_exit();
+
+
 }
 
 Semaphore::Semaphore(unsigned int init) {

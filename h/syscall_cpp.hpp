@@ -19,6 +19,8 @@ public:
     static void dispatch();
     static int sleep (time_t);
 
+    static void wrapper(void*);
+
 protected:
     Thread();
     virtual void run(){}

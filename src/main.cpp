@@ -9,6 +9,11 @@ void userWrapepr(void*){
     finished = true;
 }
 
+void idleFunc(void*){
+    while (true){
+        thread_dispatch();
+    }
+}
 
 int main(int argc, char** argv){
     uint64 mra;
@@ -17,10 +22,12 @@ int main(int argc, char** argv){
     MemoryAllocator::init();
     IO::initIO();
     thread_t main;
+    thread_t idle;
     uint64 arg = 69;
     thread_create(&main, (_thread::Func )main, nullptr);
     thread_t user_thread;
     thread_create(&user_thread, userWrapepr, (void*)arg);
+    thread_create(&idle, idleFunc, nullptr);
     //  USER MODE STARTS HERE
     RISCV::setMode(true);
     while (!finished){

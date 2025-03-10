@@ -157,7 +157,6 @@ void putc(char ch){
     asm volatile("mv a1, %0"::"r"(ch));
     asm volatile("li a0, 0x42");
     asm volatile("ecall");
-
     //After putting character
 }
 

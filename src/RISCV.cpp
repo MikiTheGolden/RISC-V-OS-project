@@ -20,17 +20,18 @@ extern "C" void RISCV::handleSupervisorTrap() {
     __asm__ volatile("csrr %[scause], scause":[scause] "=r"(scause));
     __asm__ volatile("csrr %[sepc], sepc":[sepc] "=r"(sepc));
     __asm__ volatile("csrr %[stat], sstatus":[stat] "=r"(sstatus));
-    sepc += 4;
+
 
     if(scause == 0x0000000000000008 || scause == 0x0000000000000009){
+        sepc += 4;
         size_t size;
         void* ptr;
         int retVal;
         uint64 a0, a1, a2, a3;
-        __asm__ volatile("mv %[ax], a0":[ax] "=r"(a0): : "a5", "a0", "a1", "a2", "a3", "a4", "a6", "a7");
-        __asm__ volatile("mv %[ax], a1":[ax] "=r"(a1): : "a5", "a0", "a1", "a2", "a3", "a4", "a6", "a7");
-        __asm__ volatile("mv %[ax], a2":[ax] "=r"(a2): : "a5", "a0", "a1", "a2", "a3", "a4", "a6", "a7");
-        __asm__ volatile("mv %[ax], a3":[ax] "=r"(a3): : "a5", "a0", "a1", "a2", "a3", "a4", "a6", "a7");
+        __asm__ volatile("mv %[ax], a0":[ax] "=r"(a0));
+        __asm__ volatile("mv %[ax], a1":[ax] "=r"(a1));
+        __asm__ volatile("mv %[ax], a2":[ax] "=r"(a2));
+        __asm__ volatile("mv %[ax], a3":[ax] "=r"(a3));
         //__asm__ volatile("mv %[ax], a4":[ax] "=r"(a4): : "a5", "a0", "a1", "a2", "a3", "a4", "a6", "a7");
         switch (a0) {
             case 0x01:
@@ -145,7 +146,6 @@ extern "C" void RISCV::handleSupervisorTrap() {
                 char out;
                 out = (char )a1;
                 IO::_putC(out);
-                //__putc((char)a1);
                 break;
         }
     }else if (scause == 0x8000000000000009){
