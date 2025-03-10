@@ -1,0 +1,641 @@
+GAS LISTING /tmp/ccrLgHot.s 			page 1
+
+
+   1              		.file	"IO.cpp"
+   2              		.option pic
+   3              		.option norelax
+   4              		.text
+   5              	.Ltext0:
+   6              		.align	2
+   8              	_Z41__static_initialization_and_destruction_0ii:
+   9              	.LFB58:
+  10              		.file 1 "src/IO.cpp"
+   1:src/IO.cpp    **** #include "../h/IO.hpp"
+   2:src/IO.cpp    **** 
+   3:src/IO.cpp    **** Buffer IO::inputBuffer;
+   4:src/IO.cpp    **** Buffer IO::outputBuffer;
+   5:src/IO.cpp    **** 
+   6:src/IO.cpp    **** void IO::initIO() {
+   7:src/IO.cpp    ****     inputBuffer.init();
+   8:src/IO.cpp    ****     outputBuffer.init();
+   9:src/IO.cpp    **** }
+  10:src/IO.cpp    **** 
+  11:src/IO.cpp    **** void IO::_putC(char ch) {
+  12:src/IO.cpp    ****     outputBuffer.putc(ch);
+  13:src/IO.cpp    **** }
+  14:src/IO.cpp    **** 
+  15:src/IO.cpp    **** char IO::_getC() {
+  16:src/IO.cpp    ****     return inputBuffer.getc();
+  17:src/IO.cpp    **** }
+  18:src/IO.cpp    **** 
+  19:src/IO.cpp    **** void IO::closeIO() {
+  20:src/IO.cpp    ****     _sem::close_sem(inputBuffer.itemAvailable);
+  21:src/IO.cpp    ****     _sem::close_sem(outputBuffer.itemAvailable);
+  22:src/IO.cpp    **** }
+  11              		.loc 1 22 1
+  12              		.cfi_startproc
+  13              	.LVL0:
+  14 0000 93071000 		li	a5,1
+  15 0004 6304F500 		beq	a0,a5,.L7
+  16              	.L4:
+  17 0008 67800000 		ret
+  18              	.L7:
+  19              		.loc 1 22 1 is_stmt 0 discriminator 1
+  20 000c B7070100 		li	a5,65536
+  21 0010 9387F7FF 		addi	a5,a5,-1
+  22 0014 E39AF5FE 		bne	a1,a5,.L4
+  23              		.loc 1 22 1
+  24 0018 130101FF 		addi	sp,sp,-16
+  25              		.cfi_def_cfa_offset 16
+  26 001c 23341100 		sd	ra,8(sp)
+  27 0020 23308100 		sd	s0,0(sp)
+  28              		.cfi_offset 1, -8
+  29              		.cfi_offset 8, -16
+  30 0024 13040101 		addi	s0,sp,16
+  31              		.cfi_def_cfa 8, 0
+   3:src/IO.cpp    **** 
+  32              		.loc 1 3 12
+  33 0028 17050000 		lla	a0,.LANCHOR0
+  33      13050500 
+  34              	.LVL1:
+GAS LISTING /tmp/ccrLgHot.s 			page 2
+
+
+  35 0030 97000000 		call	_ZN6BufferC1Ev@plt
+  35      E7800000 
+  36              	.LVL2:
+   4:src/IO.cpp    **** void IO::initIO() {
+  37              		.loc 1 4 12
+  38 0038 17050000 		lla	a0,.LANCHOR0+288
+  38      13050500 
+  39 0040 97000000 		call	_ZN6BufferC1Ev@plt
+  39      E7800000 
+  40              	.LVL3:
+  41              		.loc 1 22 1
+  42 0048 83308100 		ld	ra,8(sp)
+  43              		.cfi_restore 1
+  44 004c 03340100 		ld	s0,0(sp)
+  45              		.cfi_restore 8
+  46              		.cfi_def_cfa 2, 16
+  47 0050 13010101 		addi	sp,sp,16
+  48              		.cfi_def_cfa_offset 0
+  49 0054 67800000 		jr	ra
+  50              		.cfi_endproc
+  51              	.LFE58:
+  53              		.align	2
+  54              		.globl	_ZN2IO6initIOEv
+  56              	_ZN2IO6initIOEv:
+  57              	.LFB54:
+   6:src/IO.cpp    ****     inputBuffer.init();
+  58              		.loc 1 6 19 is_stmt 1
+  59              		.cfi_startproc
+  60 0058 130101FF 		addi	sp,sp,-16
+  61              		.cfi_def_cfa_offset 16
+  62 005c 23341100 		sd	ra,8(sp)
+  63 0060 23308100 		sd	s0,0(sp)
+  64              		.cfi_offset 1, -8
+  65              		.cfi_offset 8, -16
+  66 0064 13040101 		addi	s0,sp,16
+  67              		.cfi_def_cfa 8, 0
+   7:src/IO.cpp    ****     outputBuffer.init();
+  68              		.loc 1 7 5
+   7:src/IO.cpp    ****     outputBuffer.init();
+  69              		.loc 1 7 21 is_stmt 0
+  70 0068 17050000 		lla	a0,.LANCHOR0
+  70      13050500 
+  71 0070 97000000 		call	_ZN6Buffer4initEv@plt
+  71      E7800000 
+  72              	.LVL4:
+   8:src/IO.cpp    **** }
+  73              		.loc 1 8 5 is_stmt 1
+   8:src/IO.cpp    **** }
+  74              		.loc 1 8 22 is_stmt 0
+  75 0078 17050000 		lla	a0,.LANCHOR0+288
+  75      13050500 
+  76 0080 97000000 		call	_ZN6Buffer4initEv@plt
+  76      E7800000 
+  77              	.LVL5:
+   9:src/IO.cpp    **** 
+  78              		.loc 1 9 1
+  79 0088 83308100 		ld	ra,8(sp)
+GAS LISTING /tmp/ccrLgHot.s 			page 3
+
+
+  80              		.cfi_restore 1
+  81 008c 03340100 		ld	s0,0(sp)
+  82              		.cfi_restore 8
+  83              		.cfi_def_cfa 2, 16
+  84 0090 13010101 		addi	sp,sp,16
+  85              		.cfi_def_cfa_offset 0
+  86 0094 67800000 		jr	ra
+  87              		.cfi_endproc
+  88              	.LFE54:
+  90              		.align	2
+  91              		.globl	_ZN2IO5_putCEc
+  93              	_ZN2IO5_putCEc:
+  94              	.LFB55:
+  11:src/IO.cpp    ****     outputBuffer.putc(ch);
+  95              		.loc 1 11 25 is_stmt 1
+  96              		.cfi_startproc
+  97              	.LVL6:
+  98 0098 130101FF 		addi	sp,sp,-16
+  99              		.cfi_def_cfa_offset 16
+ 100 009c 23341100 		sd	ra,8(sp)
+ 101 00a0 23308100 		sd	s0,0(sp)
+ 102              		.cfi_offset 1, -8
+ 103              		.cfi_offset 8, -16
+ 104 00a4 13040101 		addi	s0,sp,16
+ 105              		.cfi_def_cfa 8, 0
+ 106 00a8 93050500 		mv	a1,a0
+  12:src/IO.cpp    **** }
+ 107              		.loc 1 12 5
+  12:src/IO.cpp    **** }
+ 108              		.loc 1 12 22 is_stmt 0
+ 109 00ac 17050000 		lla	a0,.LANCHOR0+288
+ 109      13050500 
+ 110              	.LVL7:
+ 111 00b4 97000000 		call	_ZN6Buffer4putcEc@plt
+ 111      E7800000 
+ 112              	.LVL8:
+  13:src/IO.cpp    **** 
+ 113              		.loc 1 13 1
+ 114 00bc 83308100 		ld	ra,8(sp)
+ 115              		.cfi_restore 1
+ 116 00c0 03340100 		ld	s0,0(sp)
+ 117              		.cfi_restore 8
+ 118              		.cfi_def_cfa 2, 16
+ 119 00c4 13010101 		addi	sp,sp,16
+ 120              		.cfi_def_cfa_offset 0
+ 121 00c8 67800000 		jr	ra
+ 122              		.cfi_endproc
+ 123              	.LFE55:
+ 125              		.align	2
+ 126              		.globl	_ZN2IO5_getCEv
+ 128              	_ZN2IO5_getCEv:
+ 129              	.LFB56:
+  15:src/IO.cpp    ****     return inputBuffer.getc();
+ 130              		.loc 1 15 18 is_stmt 1
+ 131              		.cfi_startproc
+ 132 00cc 130101FF 		addi	sp,sp,-16
+ 133              		.cfi_def_cfa_offset 16
+GAS LISTING /tmp/ccrLgHot.s 			page 4
+
+
+ 134 00d0 23341100 		sd	ra,8(sp)
+ 135 00d4 23308100 		sd	s0,0(sp)
+ 136              		.cfi_offset 1, -8
+ 137              		.cfi_offset 8, -16
+ 138 00d8 13040101 		addi	s0,sp,16
+ 139              		.cfi_def_cfa 8, 0
+  16:src/IO.cpp    **** }
+ 140              		.loc 1 16 5
+  16:src/IO.cpp    **** }
+ 141              		.loc 1 16 28 is_stmt 0
+ 142 00dc 17050000 		lla	a0,.LANCHOR0
+ 142      13050500 
+ 143 00e4 97000000 		call	_ZN6Buffer4getcEv@plt
+ 143      E7800000 
+ 144              	.LVL9:
+  17:src/IO.cpp    **** 
+ 145              		.loc 1 17 1
+ 146 00ec 83308100 		ld	ra,8(sp)
+ 147              		.cfi_restore 1
+ 148 00f0 03340100 		ld	s0,0(sp)
+ 149              		.cfi_restore 8
+ 150              		.cfi_def_cfa 2, 16
+ 151 00f4 13010101 		addi	sp,sp,16
+ 152              		.cfi_def_cfa_offset 0
+ 153 00f8 67800000 		jr	ra
+ 154              		.cfi_endproc
+ 155              	.LFE56:
+ 157              		.align	2
+ 158              		.globl	_ZN2IO7closeIOEv
+ 160              	_ZN2IO7closeIOEv:
+ 161              	.LFB57:
+  19:src/IO.cpp    ****     _sem::close_sem(inputBuffer.itemAvailable);
+ 162              		.loc 1 19 20 is_stmt 1
+ 163              		.cfi_startproc
+ 164 00fc 130101FE 		addi	sp,sp,-32
+ 165              		.cfi_def_cfa_offset 32
+ 166 0100 233C1100 		sd	ra,24(sp)
+ 167 0104 23388100 		sd	s0,16(sp)
+ 168 0108 23349100 		sd	s1,8(sp)
+ 169              		.cfi_offset 1, -8
+ 170              		.cfi_offset 8, -16
+ 171              		.cfi_offset 9, -24
+ 172 010c 13040102 		addi	s0,sp,32
+ 173              		.cfi_def_cfa 8, 0
+  20:src/IO.cpp    ****     _sem::close_sem(outputBuffer.itemAvailable);
+ 174              		.loc 1 20 5
+  20:src/IO.cpp    ****     _sem::close_sem(outputBuffer.itemAvailable);
+ 175              		.loc 1 20 20 is_stmt 0
+ 176 0110 97040000 		lla	s1,.LANCHOR0
+ 176      93840400 
+ 177 0118 03B50400 		ld	a0,0(s1)
+ 178 011c 97000000 		call	_ZN4_sem9close_semEPS_@plt
+ 178      E7800000 
+ 179              	.LVL10:
+  21:src/IO.cpp    **** }
+ 180              		.loc 1 21 5 is_stmt 1
+  21:src/IO.cpp    **** }
+GAS LISTING /tmp/ccrLgHot.s 			page 5
+
+
+ 181              		.loc 1 21 20 is_stmt 0
+ 182 0124 03B50412 		ld	a0,288(s1)
+ 183 0128 97000000 		call	_ZN4_sem9close_semEPS_@plt
+ 183      E7800000 
+ 184              	.LVL11:
+ 185              		.loc 1 22 1
+ 186 0130 83308101 		ld	ra,24(sp)
+ 187              		.cfi_restore 1
+ 188 0134 03340101 		ld	s0,16(sp)
+ 189              		.cfi_restore 8
+ 190              		.cfi_def_cfa 2, 32
+ 191 0138 83348100 		ld	s1,8(sp)
+ 192              		.cfi_restore 9
+ 193 013c 13010102 		addi	sp,sp,32
+ 194              		.cfi_def_cfa_offset 0
+ 195 0140 67800000 		jr	ra
+ 196              		.cfi_endproc
+ 197              	.LFE57:
+ 199              		.align	2
+ 201              	_GLOBAL__sub_I__ZN2IO11inputBufferE:
+ 202              	.LFB59:
+ 203              		.loc 1 22 1 is_stmt 1
+ 204              		.cfi_startproc
+ 205 0144 130101FF 		addi	sp,sp,-16
+ 206              		.cfi_def_cfa_offset 16
+ 207 0148 23341100 		sd	ra,8(sp)
+ 208 014c 23308100 		sd	s0,0(sp)
+ 209              		.cfi_offset 1, -8
+ 210              		.cfi_offset 8, -16
+ 211 0150 13040101 		addi	s0,sp,16
+ 212              		.cfi_def_cfa 8, 0
+ 213              		.loc 1 22 1 is_stmt 0
+ 214 0154 B7050100 		li	a1,65536
+ 215 0158 9385F5FF 		addi	a1,a1,-1
+ 216 015c 13051000 		li	a0,1
+ 217 0160 97000000 		call	_Z41__static_initialization_and_destruction_0ii
+ 217      E7800000 
+ 218              	.LVL12:
+ 219 0168 83308100 		ld	ra,8(sp)
+ 220              		.cfi_restore 1
+ 221 016c 03340100 		ld	s0,0(sp)
+ 222              		.cfi_restore 8
+ 223              		.cfi_def_cfa 2, 16
+ 224 0170 13010101 		addi	sp,sp,16
+ 225              		.cfi_def_cfa_offset 0
+ 226 0174 67800000 		jr	ra
+ 227              		.cfi_endproc
+ 228              	.LFE59:
+ 230              		.section	.init_array,"aw"
+ 231              		.align	3
+ 232 0000 00000000 		.dword	_GLOBAL__sub_I__ZN2IO11inputBufferE
+ 232      00000000 
+ 233              		.globl	_ZN2IO12outputBufferE
+ 234              		.globl	_ZN2IO11inputBufferE
+ 235              		.bss
+ 236              		.align	3
+ 237              		.set	.LANCHOR0,. + 0
+GAS LISTING /tmp/ccrLgHot.s 			page 6
+
+
+ 240              	_ZN2IO11inputBufferE:
+ 241 0000 00000000 		.zero	288
+ 241      00000000 
+ 241      00000000 
+ 241      00000000 
+ 241      00000000 
+ 244              	_ZN2IO12outputBufferE:
+ 245 0120 00000000 		.zero	288
+ 245      00000000 
+ 245      00000000 
+ 245      00000000 
+ 245      00000000 
+ 246              		.text
+ 247              	.Letext0:
+ 248              		.file 2 "src/../h/../lib/hw.h"
+ 249              		.file 3 "src/../h/ThreadList.hpp"
+ 250              		.file 4 "src/../h/_thread.hpp"
+ 251              		.file 5 "src/../h/syscall_c.h"
+ 252              		.file 6 "src/../h/_sem.hpp"
+ 253              		.file 7 "src/../h/buffer.hpp"
+ 254              		.file 8 "src/../h/IO.hpp"
+GAS LISTING /tmp/ccrLgHot.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 IO.cpp
+     /tmp/ccrLgHot.s:8      .text:0000000000000000 _Z41__static_initialization_and_destruction_0ii
+     /tmp/ccrLgHot.s:12     .text:0000000000000000 .L0 
+     /tmp/ccrLgHot.s:14     .text:0000000000000000 .L0 
+     /tmp/ccrLgHot.s:20     .text:000000000000000c .L0 
+     /tmp/ccrLgHot.s:24     .text:0000000000000018 .L0 
+     /tmp/ccrLgHot.s:25     .text:000000000000001c .L0 
+     /tmp/ccrLgHot.s:28     .text:0000000000000024 .L0 
+     /tmp/ccrLgHot.s:29     .text:0000000000000024 .L0 
+     /tmp/ccrLgHot.s:31     .text:0000000000000028 .L0 
+     /tmp/ccrLgHot.s:33     .text:0000000000000028 .L0 
+     /tmp/ccrLgHot.s:38     .text:0000000000000038 .L0 
+     /tmp/ccrLgHot.s:42     .text:0000000000000048 .L0 
+     /tmp/ccrLgHot.s:43     .text:000000000000004c .L0 
+     /tmp/ccrLgHot.s:45     .text:0000000000000050 .L0 
+     /tmp/ccrLgHot.s:46     .text:0000000000000050 .L0 
+     /tmp/ccrLgHot.s:48     .text:0000000000000054 .L0 
+     /tmp/ccrLgHot.s:50     .text:0000000000000058 .L0 
+     /tmp/ccrLgHot.s:56     .text:0000000000000058 _ZN2IO6initIOEv
+     /tmp/ccrLgHot.s:59     .text:0000000000000058 .L0 
+     /tmp/ccrLgHot.s:60     .text:0000000000000058 .L0 
+     /tmp/ccrLgHot.s:61     .text:000000000000005c .L0 
+     /tmp/ccrLgHot.s:64     .text:0000000000000064 .L0 
+     /tmp/ccrLgHot.s:65     .text:0000000000000064 .L0 
+     /tmp/ccrLgHot.s:67     .text:0000000000000068 .L0 
+     /tmp/ccrLgHot.s:69     .text:0000000000000068 .L0 
+     /tmp/ccrLgHot.s:70     .text:0000000000000068 .L0 
+     /tmp/ccrLgHot.s:74     .text:0000000000000078 .L0 
+     /tmp/ccrLgHot.s:75     .text:0000000000000078 .L0 
+     /tmp/ccrLgHot.s:79     .text:0000000000000088 .L0 
+     /tmp/ccrLgHot.s:80     .text:000000000000008c .L0 
+     /tmp/ccrLgHot.s:82     .text:0000000000000090 .L0 
+     /tmp/ccrLgHot.s:83     .text:0000000000000090 .L0 
+     /tmp/ccrLgHot.s:85     .text:0000000000000094 .L0 
+     /tmp/ccrLgHot.s:87     .text:0000000000000098 .L0 
+     /tmp/ccrLgHot.s:93     .text:0000000000000098 _ZN2IO5_putCEc
+     /tmp/ccrLgHot.s:96     .text:0000000000000098 .L0 
+     /tmp/ccrLgHot.s:98     .text:0000000000000098 .L0 
+     /tmp/ccrLgHot.s:99     .text:000000000000009c .L0 
+     /tmp/ccrLgHot.s:102    .text:00000000000000a4 .L0 
+     /tmp/ccrLgHot.s:103    .text:00000000000000a4 .L0 
+     /tmp/ccrLgHot.s:105    .text:00000000000000a8 .L0 
+     /tmp/ccrLgHot.s:108    .text:00000000000000ac .L0 
+     /tmp/ccrLgHot.s:109    .text:00000000000000ac .L0 
+     /tmp/ccrLgHot.s:114    .text:00000000000000bc .L0 
+     /tmp/ccrLgHot.s:115    .text:00000000000000c0 .L0 
+     /tmp/ccrLgHot.s:117    .text:00000000000000c4 .L0 
+     /tmp/ccrLgHot.s:118    .text:00000000000000c4 .L0 
+     /tmp/ccrLgHot.s:120    .text:00000000000000c8 .L0 
+     /tmp/ccrLgHot.s:122    .text:00000000000000cc .L0 
+     /tmp/ccrLgHot.s:128    .text:00000000000000cc _ZN2IO5_getCEv
+     /tmp/ccrLgHot.s:131    .text:00000000000000cc .L0 
+     /tmp/ccrLgHot.s:132    .text:00000000000000cc .L0 
+     /tmp/ccrLgHot.s:133    .text:00000000000000d0 .L0 
+     /tmp/ccrLgHot.s:136    .text:00000000000000d8 .L0 
+     /tmp/ccrLgHot.s:137    .text:00000000000000d8 .L0 
+GAS LISTING /tmp/ccrLgHot.s 			page 8
+
+
+     /tmp/ccrLgHot.s:139    .text:00000000000000dc .L0 
+     /tmp/ccrLgHot.s:141    .text:00000000000000dc .L0 
+     /tmp/ccrLgHot.s:142    .text:00000000000000dc .L0 
+     /tmp/ccrLgHot.s:146    .text:00000000000000ec .L0 
+     /tmp/ccrLgHot.s:147    .text:00000000000000f0 .L0 
+     /tmp/ccrLgHot.s:149    .text:00000000000000f4 .L0 
+     /tmp/ccrLgHot.s:150    .text:00000000000000f4 .L0 
+     /tmp/ccrLgHot.s:152    .text:00000000000000f8 .L0 
+     /tmp/ccrLgHot.s:154    .text:00000000000000fc .L0 
+     /tmp/ccrLgHot.s:160    .text:00000000000000fc _ZN2IO7closeIOEv
+     /tmp/ccrLgHot.s:163    .text:00000000000000fc .L0 
+     /tmp/ccrLgHot.s:164    .text:00000000000000fc .L0 
+     /tmp/ccrLgHot.s:165    .text:0000000000000100 .L0 
+     /tmp/ccrLgHot.s:169    .text:000000000000010c .L0 
+     /tmp/ccrLgHot.s:170    .text:000000000000010c .L0 
+     /tmp/ccrLgHot.s:171    .text:000000000000010c .L0 
+     /tmp/ccrLgHot.s:173    .text:0000000000000110 .L0 
+     /tmp/ccrLgHot.s:175    .text:0000000000000110 .L0 
+     /tmp/ccrLgHot.s:176    .text:0000000000000110 .L0 
+     /tmp/ccrLgHot.s:181    .text:0000000000000124 .L0 
+     /tmp/ccrLgHot.s:182    .text:0000000000000124 .L0 
+     /tmp/ccrLgHot.s:186    .text:0000000000000130 .L0 
+     /tmp/ccrLgHot.s:187    .text:0000000000000134 .L0 
+     /tmp/ccrLgHot.s:189    .text:0000000000000138 .L0 
+     /tmp/ccrLgHot.s:190    .text:0000000000000138 .L0 
+     /tmp/ccrLgHot.s:192    .text:000000000000013c .L0 
+     /tmp/ccrLgHot.s:194    .text:0000000000000140 .L0 
+     /tmp/ccrLgHot.s:196    .text:0000000000000144 .L0 
+     /tmp/ccrLgHot.s:201    .text:0000000000000144 _GLOBAL__sub_I__ZN2IO11inputBufferE
+     /tmp/ccrLgHot.s:204    .text:0000000000000144 .L0 
+     /tmp/ccrLgHot.s:205    .text:0000000000000144 .L0 
+     /tmp/ccrLgHot.s:206    .text:0000000000000148 .L0 
+     /tmp/ccrLgHot.s:209    .text:0000000000000150 .L0 
+     /tmp/ccrLgHot.s:210    .text:0000000000000150 .L0 
+     /tmp/ccrLgHot.s:212    .text:0000000000000154 .L0 
+     /tmp/ccrLgHot.s:214    .text:0000000000000154 .L0 
+     /tmp/ccrLgHot.s:220    .text:000000000000016c .L0 
+     /tmp/ccrLgHot.s:222    .text:0000000000000170 .L0 
+     /tmp/ccrLgHot.s:223    .text:0000000000000170 .L0 
+     /tmp/ccrLgHot.s:225    .text:0000000000000174 .L0 
+     /tmp/ccrLgHot.s:227    .text:0000000000000178 .L0 
+     /tmp/ccrLgHot.s:244    .bss:0000000000000120 _ZN2IO12outputBufferE
+     /tmp/ccrLgHot.s:240    .bss:0000000000000000 _ZN2IO11inputBufferE
+     /tmp/ccrLgHot.s:237    .bss:0000000000000000 .LANCHOR0
+     /tmp/ccrLgHot.s:255    .text:0000000000000178 .L0 
+     /tmp/ccrLgHot.s:33     .text:0000000000000028 .L0 
+     /tmp/ccrLgHot.s:38     .text:0000000000000038 .L0 
+     /tmp/ccrLgHot.s:70     .text:0000000000000068 .L0 
+     /tmp/ccrLgHot.s:75     .text:0000000000000078 .L0 
+     /tmp/ccrLgHot.s:109    .text:00000000000000ac .L0 
+     /tmp/ccrLgHot.s:142    .text:00000000000000dc .L0 
+     /tmp/ccrLgHot.s:176    .text:0000000000000110 .L0 
+     /tmp/ccrLgHot.s:18     .text:000000000000000c .L7
+     /tmp/ccrLgHot.s:16     .text:0000000000000008 .L4
+     /tmp/ccrLgHot.s:1508   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/ccrLgHot.s:2742   .debug_str:00000000000006cc .LASF138
+     /tmp/ccrLgHot.s:2568   .debug_str:0000000000000162 .LASF139
+GAS LISTING /tmp/ccrLgHot.s 			page 9
+
+
+     /tmp/ccrLgHot.s:2660   .debug_str:000000000000044a .LASF140
+     /tmp/ccrLgHot.s:5      .text:0000000000000000 .Ltext0
+     /tmp/ccrLgHot.s:247    .text:0000000000000178 .Letext0
+     /tmp/ccrLgHot.s:2512   .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/ccrLgHot.s:2608   .debug_str:0000000000000293 .LASF0
+     /tmp/ccrLgHot.s:2620   .debug_str:00000000000002ec .LASF1
+     /tmp/ccrLgHot.s:2682   .debug_str:000000000000051f .LASF2
+     /tmp/ccrLgHot.s:2690   .debug_str:000000000000055e .LASF4
+     /tmp/ccrLgHot.s:2612   .debug_str:00000000000002a5 .LASF3
+     /tmp/ccrLgHot.s:2522   .debug_str:0000000000000038 .LASF5
+     /tmp/ccrLgHot.s:2670   .debug_str:00000000000004bb .LASF6
+     /tmp/ccrLgHot.s:2662   .debug_str:000000000000046a .LASF7
+     /tmp/ccrLgHot.s:2616   .debug_str:00000000000002c9 .LASF8
+     /tmp/ccrLgHot.s:2588   .debug_str:00000000000001fd .LASF9
+     /tmp/ccrLgHot.s:2590   .debug_str:000000000000020d .LASF10
+     /tmp/ccrLgHot.s:2548   .debug_str:00000000000000ef .LASF11
+     /tmp/ccrLgHot.s:2584   .debug_str:00000000000001dd .LASF12
+     /tmp/ccrLgHot.s:2556   .debug_str:000000000000010e .LASF13
+     /tmp/ccrLgHot.s:2546   .debug_str:00000000000000df .LASF14
+     /tmp/ccrLgHot.s:2720   .debug_str:0000000000000664 .LASF15
+     /tmp/ccrLgHot.s:2574   .debug_str:0000000000000199 .LASF16
+     /tmp/ccrLgHot.s:2710   .debug_str:0000000000000625 .LASF17
+     /tmp/ccrLgHot.s:2652   .debug_str:0000000000000409 .LASF36
+     /tmp/ccrLgHot.s:2762   .debug_str:0000000000000804 .LASF20
+     /tmp/ccrLgHot.s:2610   .debug_str:00000000000002a0 .LASF18
+     /tmp/ccrLgHot.s:2550   .debug_str:00000000000000fe .LASF19
+     /tmp/ccrLgHot.s:2700   .debug_str:00000000000005c8 .LASF22
+     /tmp/ccrLgHot.s:2804   .debug_str:0000000000000936 .LASF21
+     /tmp/ccrLgHot.s:2704   .debug_str:00000000000005f3 .LASF23
+     /tmp/ccrLgHot.s:2540   .debug_str:00000000000000b2 .LASF24
+     /tmp/ccrLgHot.s:2694   .debug_str:000000000000057d .LASF25
+     /tmp/ccrLgHot.s:2520   .debug_str:0000000000000028 .LASF71
+     /tmp/ccrLgHot.s:2624   .debug_str:0000000000000311 .LASF141
+     /tmp/ccrLgHot.s:2708   .debug_str:0000000000000612 .LASF142
+     /tmp/ccrLgHot.s:2674   .debug_str:00000000000004d1 .LASF143
+     /tmp/ccrLgHot.s:2714   .debug_str:000000000000064d .LASF26
+     /tmp/ccrLgHot.s:2648   .debug_str:00000000000003ee .LASF27
+     /tmp/ccrLgHot.s:2576   .debug_str:00000000000001af .LASF32
+     /tmp/ccrLgHot.s:2698   .debug_str:00000000000005a6 .LASF34
+     /tmp/ccrLgHot.s:2766   .debug_str:0000000000000815 .LASF28
+     /tmp/ccrLgHot.s:2658   .debug_str:0000000000000430 .LASF30
+     /tmp/ccrLgHot.s:2784   .debug_str:00000000000008ad .LASF29
+     /tmp/ccrLgHot.s:2514   .debug_str:0000000000000000 .LASF31
+     /tmp/ccrLgHot.s:2518   .debug_str:0000000000000021 .LASF33
+     /tmp/ccrLgHot.s:2666   .debug_str:000000000000048d .LASF35
+     /tmp/ccrLgHot.s:2530   .debug_str:0000000000000058 .LASF37
+     /tmp/ccrLgHot.s:2730   .debug_str:000000000000069a .LASF144
+     /tmp/ccrLgHot.s:2592   .debug_str:000000000000021b .LASF145
+     /tmp/ccrLgHot.s:2562   .debug_str:000000000000014f .LASF38
+     /tmp/ccrLgHot.s:2756   .debug_str:00000000000007d2 .LASF39
+     /tmp/ccrLgHot.s:2798   .debug_str:000000000000090f .LASF40
+     /tmp/ccrLgHot.s:2654   .debug_str:0000000000000414 .LASF41
+     /tmp/ccrLgHot.s:2728   .debug_str:0000000000000691 .LASF42
+     /tmp/ccrLgHot.s:2528   .debug_str:000000000000004e .LASF43
+     /tmp/ccrLgHot.s:2724   .debug_str:0000000000000679 .LASF44
+     /tmp/ccrLgHot.s:2630   .debug_str:0000000000000369 .LASF45
+     /tmp/ccrLgHot.s:2750   .debug_str:00000000000007b1 .LASF46
+GAS LISTING /tmp/ccrLgHot.s 			page 10
+
+
+     /tmp/ccrLgHot.s:2706   .debug_str:000000000000060c .LASF47
+     /tmp/ccrLgHot.s:2554   .debug_str:0000000000000108 .LASF48
+     /tmp/ccrLgHot.s:2668   .debug_str:00000000000004ae .LASF49
+     /tmp/ccrLgHot.s:2790   .debug_str:00000000000008d5 .LASF50
+     /tmp/ccrLgHot.s:2770   .debug_str:0000000000000832 .LASF66
+     /tmp/ccrLgHot.s:2780   .debug_str:000000000000087c .LASF68
+     /tmp/ccrLgHot.s:2740   .debug_str:00000000000006c4 .LASF51
+     /tmp/ccrLgHot.s:2542   .debug_str:00000000000000c2 .LASF52
+     /tmp/ccrLgHot.s:2786   .debug_str:00000000000008b6 .LASF53
+     /tmp/ccrLgHot.s:2684   .debug_str:000000000000052d .LASF54
+     /tmp/ccrLgHot.s:2692   .debug_str:0000000000000565 .LASF55
+     /tmp/ccrLgHot.s:2544   .debug_str:00000000000000d3 .LASF56
+     /tmp/ccrLgHot.s:2774   .debug_str:0000000000000841 .LASF57
+     /tmp/ccrLgHot.s:2732   .debug_str:00000000000006a2 .LASF58
+     /tmp/ccrLgHot.s:2558   .debug_str:000000000000011e .LASF59
+     /tmp/ccrLgHot.s:2642   .debug_str:00000000000003bd .LASF60
+     /tmp/ccrLgHot.s:2760   .debug_str:00000000000007ea .LASF61
+     /tmp/ccrLgHot.s:2718   .debug_str:0000000000000657 .LASF62
+     /tmp/ccrLgHot.s:2640   .debug_str:0000000000000398 .LASF63
+     /tmp/ccrLgHot.s:2594   .debug_str:0000000000000220 .LASF64
+     /tmp/ccrLgHot.s:2628   .debug_str:000000000000033d .LASF65
+     /tmp/ccrLgHot.s:2564   .debug_str:0000000000000154 .LASF67
+     /tmp/ccrLgHot.s:2560   .debug_str:0000000000000138 .LASF69
+     /tmp/ccrLgHot.s:2678   .debug_str:0000000000000507 .LASF70
+     /tmp/ccrLgHot.s:2744   .debug_str:0000000000000790 .LASF72
+     /tmp/ccrLgHot.s:2736   .debug_str:00000000000006b4 .LASF73
+     /tmp/ccrLgHot.s:2686   .debug_str:0000000000000537 .LASF74
+     /tmp/ccrLgHot.s:2634   .debug_str:0000000000000378 .LASF75
+     /tmp/ccrLgHot.s:2532   .debug_str:0000000000000060 .LASF76
+     /tmp/ccrLgHot.s:2752   .debug_str:00000000000007bb .LASF77
+     /tmp/ccrLgHot.s:2676   .debug_str:00000000000004eb .LASF78
+     /tmp/ccrLgHot.s:2536   .debug_str:00000000000000a1 .LASF79
+     /tmp/ccrLgHot.s:2782   .debug_str:0000000000000892 .LASF80
+     /tmp/ccrLgHot.s:2722   .debug_str:0000000000000670 .LASF81
+     /tmp/ccrLgHot.s:2618   .debug_str:00000000000002dc .LASF82
+     /tmp/ccrLgHot.s:2788   .debug_str:00000000000008cf .LASF83
+     /tmp/ccrLgHot.s:2716   .debug_str:0000000000000652 .LASF84
+     /tmp/ccrLgHot.s:2604   .debug_str:0000000000000287 .LASF85
+     /tmp/ccrLgHot.s:2688   .debug_str:0000000000000551 .LASF86
+     /tmp/ccrLgHot.s:2606   .debug_str:000000000000028d .LASF87
+     /tmp/ccrLgHot.s:2578   .debug_str:00000000000001b7 .LASF88
+     /tmp/ccrLgHot.s:2796   .debug_str:0000000000000907 .LASF89
+     /tmp/ccrLgHot.s:2778   .debug_str:0000000000000869 .LASF90
+     /tmp/ccrLgHot.s:2734   .debug_str:00000000000006ad .LASF91
+     /tmp/ccrLgHot.s:2712   .debug_str:000000000000063b .LASF92
+     /tmp/ccrLgHot.s:2566   .debug_str:000000000000015d .LASF93
+     /tmp/ccrLgHot.s:2644   .debug_str:00000000000003c8 .LASF94
+     /tmp/ccrLgHot.s:2768   .debug_str:000000000000081d .LASF95
+     /tmp/ccrLgHot.s:2598   .debug_str:000000000000023d .LASF96
+     /tmp/ccrLgHot.s:2534   .debug_str:000000000000007c .LASF97
+     /tmp/ccrLgHot.s:2526   .debug_str:0000000000000045 .LASF98
+     /tmp/ccrLgHot.s:2656   .debug_str:000000000000041c .LASF99
+     /tmp/ccrLgHot.s:2538   .debug_str:00000000000000ad .LASF100
+     /tmp/ccrLgHot.s:2664   .debug_str:000000000000047d .LASF101
+     /tmp/ccrLgHot.s:2754   .debug_str:00000000000007c8 .LASF102
+     /tmp/ccrLgHot.s:2802   .debug_str:000000000000091f .LASF103
+     /tmp/ccrLgHot.s:2808   .debug_str:0000000000000958 .LASF104
+GAS LISTING /tmp/ccrLgHot.s 			page 11
+
+
+     /tmp/ccrLgHot.s:2580   .debug_str:00000000000001c8 .LASF105
+     /tmp/ccrLgHot.s:2758   .debug_str:00000000000007da .LASF106
+     /tmp/ccrLgHot.s:2702   .debug_str:00000000000005e9 .LASF107
+     /tmp/ccrLgHot.s:2696   .debug_str:0000000000000596 .LASF108
+     /tmp/ccrLgHot.s:2632   .debug_str:0000000000000373 .LASF109
+     /tmp/ccrLgHot.s:2772   .debug_str:000000000000083a .LASF110
+     /tmp/ccrLgHot.s:2792   .debug_str:00000000000008f2 .LASF111
+     /tmp/ccrLgHot.s:2636   .debug_str:0000000000000385 .LASF112
+     /tmp/ccrLgHot.s:2622   .debug_str:00000000000002ff .LASF113
+     /tmp/ccrLgHot.s:2552   .debug_str:0000000000000103 .LASF114
+     /tmp/ccrLgHot.s:2614   .debug_str:00000000000002b7 .LASF115
+     /tmp/ccrLgHot.s:2748   .debug_str:00000000000007a8 .LASF116
+     /tmp/ccrLgHot.s:2650   .debug_str:00000000000003f3 .LASF117
+     /tmp/ccrLgHot.s:2626   .debug_str:000000000000032b .LASF118
+     /tmp/ccrLgHot.s:2638   .debug_str:000000000000038a .LASF119
+     /tmp/ccrLgHot.s:2572   .debug_str:0000000000000191 .LASF120
+     /tmp/ccrLgHot.s:2746   .debug_str:00000000000007a1 .LASF121
+     /tmp/ccrLgHot.s:2516   .debug_str:000000000000001b .LASF122
+     /tmp/ccrLgHot.s:2738   .debug_str:00000000000006bf .LASF123
+     /tmp/ccrLgHot.s:2764   .debug_str:0000000000000809 .LASF124
+     /tmp/ccrLgHot.s:2776   .debug_str:000000000000085c .LASF125
+     /tmp/ccrLgHot.s:2582   .debug_str:00000000000001d6 .LASF126
+     /tmp/ccrLgHot.s:2726   .debug_str:0000000000000681 .LASF127
+     /tmp/ccrLgHot.s:2680   .debug_str:0000000000000517 .LASF128
+     /tmp/ccrLgHot.s:2586   .debug_str:00000000000001ec .LASF129
+     /tmp/ccrLgHot.s:2524   .debug_str:000000000000003f .LASF130
+     /tmp/ccrLgHot.s:2602   .debug_str:0000000000000278 .LASF131
+     /tmp/ccrLgHot.s:2794   .debug_str:0000000000000901 .LASF146
+     /tmp/ccrLgHot.s:2672   .debug_str:00000000000004c2 .LASF147
+     /tmp/ccrLgHot.s:2806   .debug_str:0000000000000943 .LASF132
+     /tmp/ccrLgHot.s:2646   .debug_str:00000000000003d8 .LASF133
+     /tmp/ccrLgHot.s:2570   .debug_str:000000000000016d .LASF134
+     /tmp/ccrLgHot.s:202    .text:0000000000000144 .LFB59
+     /tmp/ccrLgHot.s:228    .text:0000000000000178 .LFE59
+     /tmp/ccrLgHot.s:218    .text:0000000000000168 .LVL12
+     /tmp/ccrLgHot.s:2600   .debug_str:000000000000024e .LASF135
+     /tmp/ccrLgHot.s:9      .text:0000000000000000 .LFB58
+     /tmp/ccrLgHot.s:51     .text:0000000000000058 .LFE58
+     /tmp/ccrLgHot.s:2596   .debug_str:000000000000022e .LASF136
+     /tmp/ccrLgHot.s:2457   .debug_loc:0000000000000000 .LLST0
+     /tmp/ccrLgHot.s:2800   .debug_str:0000000000000914 .LASF137
+     /tmp/ccrLgHot.s:2471   .debug_loc:0000000000000039 .LLST1
+     /tmp/ccrLgHot.s:36     .text:0000000000000038 .LVL2
+     /tmp/ccrLgHot.s:40     .text:0000000000000048 .LVL3
+     /tmp/ccrLgHot.s:161    .text:00000000000000fc .LFB57
+     /tmp/ccrLgHot.s:197    .text:0000000000000144 .LFE57
+     /tmp/ccrLgHot.s:179    .text:0000000000000124 .LVL10
+     /tmp/ccrLgHot.s:184    .text:0000000000000130 .LVL11
+     /tmp/ccrLgHot.s:129    .text:00000000000000cc .LFB56
+     /tmp/ccrLgHot.s:155    .text:00000000000000fc .LFE56
+     /tmp/ccrLgHot.s:144    .text:00000000000000ec .LVL9
+     /tmp/ccrLgHot.s:94     .text:0000000000000098 .LFB55
+     /tmp/ccrLgHot.s:123    .text:00000000000000cc .LFE55
+     /tmp/ccrLgHot.s:2485   .debug_loc:0000000000000072 .LLST2
+     /tmp/ccrLgHot.s:112    .text:00000000000000bc .LVL8
+     /tmp/ccrLgHot.s:57     .text:0000000000000058 .LFB54
+     /tmp/ccrLgHot.s:88     .text:0000000000000098 .LFE54
+GAS LISTING /tmp/ccrLgHot.s 			page 12
+
+
+     /tmp/ccrLgHot.s:72     .text:0000000000000078 .LVL4
+     /tmp/ccrLgHot.s:77     .text:0000000000000088 .LVL5
+     /tmp/ccrLgHot.s:13     .text:0000000000000000 .LVL0
+     /tmp/ccrLgHot.s:34     .text:0000000000000030 .LVL1
+     /tmp/ccrLgHot.s:97     .text:0000000000000098 .LVL6
+     /tmp/ccrLgHot.s:110    .text:00000000000000b4 .LVL7
+     /tmp/ccrLgHot.s:256    .debug_info:0000000000000000 .Ldebug_info0
+
+UNDEFINED SYMBOLS
+_ZN6BufferC1Ev
+_ZN6Buffer4initEv
+_ZN6Buffer4putcEc
+_ZN6Buffer4getcEv
+_ZN4_sem9close_semEPS_
